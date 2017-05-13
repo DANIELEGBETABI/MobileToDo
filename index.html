@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mobile Todo</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	<!-- Home Page -->
+	<div data-role="page" id="home">
+		<header data-role="header">
+			<h1>Mobile Todo</h1>
+		</header>
+		<main data-role="content" id="content">
+			<p><a href="#add" data-role="button">Add a Task</a></p>
+			<p><a href="index.html" data-ajax="false" id="btn-clear" data-role="button" data-theme="b">Clear All Tasks</a></p>
+			<ul id="todos" data-role="listview" data-filter="true" data-filter-placeholder="Search Tasks..." data-inset="true">
+
+			</ul>
+		</main>
+		<footer data-role="footer" id="footer">
+			<h4>Mobile Todo &copy; 2017 Nbgslv</h4>
+		</footer>
+	</div><!-- /home page -->
+
+	<!-- Add Page -->
+	<div data-role="page" id="add">
+		<header data-role="header">
+			<a href="index.html" id="btn-cancel" data-icon="delete">Cancael</a>
+			<h1>Add a Task</h1>
+			<a href="#" id="btn-save" data-icon="check" data-theme="b" onclick="$('#frm-add').submit();">Save</a>
+			<!-- Form errors popup -->
+			<div data-role="popup" data-theme="b" class="ui-content" id="frm_error">
+				The following errors occoured during form submition:
+				<ul id="err_list">
+				</ul>
+				<a href="index.html" data-role="button" data-rel="back" onclick="$('ul').empty()">Ok</a>
+			</div><!-- /#frm_error -->
+		</header>
+		<main data-role="content" id="content">
+			<form method="POST" id="frm-add" data-ajax="false">
+				<input type="text" name="task_name" id="task_name" placeholder="Task Name..." required>
+				<input type="date" name="task_date" id="task_date" required>
+			</form>
+		</main>
+		<footer data-role="footer" id="footer">
+			<h4>Mobile Todo &copy; 2017 Nbgslv</h4>
+		</footer>
+	</div><!-- /add page -->
+
+	<!-- Edit Page -->
+	<div data-role="page" id="edit">
+		<header data-role="header">
+			<a href="index.html" id="btn-cancel" data-icon="delete">Cancael</a>
+			<h1>Edit a Task</h1>
+			<a href="#" id="btn-save" data-icon="check" data-theme="b" onclick="$('#frm-edit').submit();">Save</a>
+			<!-- Form errors popup -->
+			<div data-role="popup" data-theme="b" class="ui-content" id="frm_error_edit">
+				The following errors occoured during form submition:
+				<ul id="err_list_edit">
+				</ul>
+				<a href="index.html" data-role="button" data-rel="back" onclick="$('ul').empty()">Ok</a>
+			</div><!-- /#frm_error -->
+		</header>
+		<main data-role="content" id="content">
+			<form id="frm-edit">
+				<input type="text" name="task_name" id="task_name_edit" placeholder="Task Name..." required>
+				<input type="date" name="task_date" id="task_date_edit" required>
+				<a href="#" id="delete" data-role="button">Delete</a>
+			</form>
+		</main>
+		<footer data-role="footer" id="footer">
+			<h4>Mobile Todo &copy; 2017 Nbgslv</h4>
+		</footer>
+	</div><!-- /edit page -->
+</body>
+</html>
